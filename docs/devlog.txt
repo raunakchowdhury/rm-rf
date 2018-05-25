@@ -14,6 +14,7 @@ Deadline Dates in Parentheses
 ------------------------------------
 Changes to Codebase:
 - Added devlog (5/25/18)
+- Added template file for playing soundtracks (5/25/18)
 
 ------------------------------------
 Tasks to Complete/Features to Implement:
