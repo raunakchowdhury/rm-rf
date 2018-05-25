@@ -1,0 +1,23 @@
+DEVLOG:
+
+------------------------------------
+Project Summary:
+
+------------------------------------
+Nomenclature:
+> R - Assigned to Raunak
+> F - Assigned to Fabiha
+> N - Assigned to Nadine
+
+Deadline Dates in Parentheses
+
+------------------------------------
+Changes to Codebase:
+- Added devlog (5/25/18)
+
+------------------------------------
+Tasks to Complete/Features to Implement:
+1. Project Proposal [R,F,N] (5/29/18)
+
+------------------------------------
+Cool Stuff that could be Added Later:
