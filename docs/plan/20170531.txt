@@ -1,0 +1,68 @@
+Team rm-rf T. Fabiha, Raunak Chowdhury, Nadie Jackson
+APCS2 pd2
+Plan
+31-05-2018
+
+PROJECT SUMMARY:
+We will be simulating the final level of Plants vs Zombies 1. The conventional PvZ games allow you to expand your garden-army of plants with sun; however, in the Zomboss boss fight (the final boss), there is no sun. Our project is an emulation of the boss fight against Zomboss. The goal of the player is to strategically place his or her plants such that none of the zombies or their weapons come into contact with the house. However, there will be some changes made: the actual level will take place in the Garden setpiece (which is flat with grass), there will be no pots, and there will be no advanced phases (ie. the phase were the Zomboss AoE attacks some of your plants by throwing a van on top of them). 
+
+31 May
+	- create plan (R + F)
+	- type more detailed plan (N)
+	- finish uml diagrams (N)
+1 June
+	- fill Character file completely, but comment out sprites (N)
+		- protected PShape[] _sprites
+		- protected int _HP
+		- protected int _lane
+		- protected int _x
+		- protected int _y
+		+ abstract void takeDamage()
+		+ int lane()
+		+ abstract int value()
+	- start Plant file (R)
+		- protected Plot location
+		+ abstract void attack()
+	- complete Projectile file (similar to Ball) (F)
+		- int _damage 
+		- int _dx
+		- int _dy
+		- int _x
+		- int _y
+	
+2 June (Saturday)
+	- implement PeaShooter class attacking part (using green circles instead of sprites) (R)
+		- Queue<Projectile> _balls
+		+ void attack()
+	- implement Driver class to test functionality thus far (R)
+	- implement Zombie movement (using brown ellipses instead of sprites) (F)
+		- protected int speed
+		+ int xcor()
+	- test Zombie movement in Driver file (F)
+	- implement Plot file (N)
+		- int _xcenter
+		- int _ycenter
+		- int _size
+		+ int xmin()
+		+ int xmax()
+		+ int ymin()
+		+ int ymax()
+	- add Plots to Driver file and test (N)
+3 June (Sunday)
+	- add + void takeDamage() and + int value() to Zombie file and test (F)
+	- complete layout of screen (R + F + N)
+	- implement Queue of Plants (R + F)
+	- add drag-and-drop functionality for Plants (N)
+4 June
+	- add Zomboss with healthbar functionality (F + N)
+5 June (Day Off)
+	- add timed game functionality, adding a leaderboard (R + F + N)
+	- implement Wall-Nut (R + F + N)
+	- implement ScreenZombie (R)
+	- implement ConeZombie (F)
+	- implement BucketZombie (N)
+6 June
+	- add sprites (R + N)
+7 June (Second Day Off)
+	- add background and test (F+N+R)
+	- test more
