@@ -13,9 +13,10 @@ Deadline Dates in Parentheses
 
 ------------------------------------
 Changes to Codebase:
-- Added devlog (5/25/18) -R/F?
+- Added devlog (5/25/18) -R
 - Added template file for playing soundtracks (5/25/18) -R
-- Completed plan with assigned tasks -N
+- Completed plan with assigned tasks (5/30/18) -N
+- Flowchart and UML (5/31/18) -N/F 
 ------------------------------------
 Tasks to Complete/Features to Implement:
 0. fill Character file completely, but comment out sprites (N)

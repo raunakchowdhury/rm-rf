@@ -1,11 +1,23 @@
 class Projectile
 {
+  /*instance vars*/
   private int _damage;
   private int _dx;
   private int _dy;
   private int _x;
   private int _y;
   private int _radius;
+  
+  /*constructor*/
+  public Projectile(x, y, dx, dy, rad)
+  {
+    _x = x;
+    _y = y;
+    _dx = dx;
+    _dy = dy;
+    _radius = rad;
+  }
+  
   public void move()
   {
     _x += _dx;
