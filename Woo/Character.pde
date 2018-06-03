@@ -1,4 +1,4 @@
-class Character {
+abstract class Character {
   protected PShape[] _sprites;
   protected int _HP;
   protected int _lane;
@@ -9,9 +9,5 @@ class Character {
   public int lane()
   {
     return _lane;
-  }
-  public int level()
-  {
-    return level;
   }
 }
