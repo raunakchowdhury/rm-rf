@@ -13,10 +13,19 @@ Deadline Dates in Parentheses
 
 ------------------------------------
 Changes to Codebase:
+
 - Added devlog (5/25/18) -R
 - Added template file for playing soundtracks (5/25/18) -R
+
 - Completed plan with assigned tasks (5/30/18) -N
+
 - Flowchart and UML (5/31/18) -N/F 
+- Added Character, Peashooter, Plant, Plot and Projectile classes (5/31/18) -N
+
+- Added abstracted zombie class (6/03/18) -R
+- Procured zombie and plant sprites (6/03/18) -F/R
+- Edited devlog (6/03/18) -F
+- Edited plan (6/03/08) -F
 ------------------------------------
 Tasks to Complete/Features to Implement:
 0. fill Character file completely, but comment out sprites (N)
