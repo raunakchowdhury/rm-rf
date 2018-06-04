@@ -4,6 +4,7 @@ class Plot
   private int _xcenter;
   private int _ycenter;
   private int _size;
+  private Plant _plant;
 
   public Plot(int xcenter, int ycenter, int size)
   {
@@ -28,4 +29,9 @@ class Plot
   {
     return _ycenter + _size / 2;
   }
+  public void implant(Plant plant)
+  {
+    _plant = plant; // add a plant to the plot
+  }
+  public Plant removePlant()
 }
