@@ -9,7 +9,7 @@ class Projectile
   private int _radius;
   
   /*constructor*/
-  public Projectile(x, y, dx, dy, rad)
+  public Projectile(int x, int y, int dx, int dy, int rad)
   {
     _x = x;
     _y = y;

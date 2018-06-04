@@ -4,14 +4,14 @@ class Plot
   private int _xcenter;
   private int _ycenter;
   private int _size;
-  
-  public Plot(xcenter, ycenter, size)
+
+  public Plot(int xcenter, int ycenter, int size)
   {
-      _xcenter = xcenter;
-      _ycenter = ycenter;
-      _size = size;
+    _xcenter = xcenter;
+    _ycenter = ycenter;
+    _size = size;
   }
-  
+
   public int xmin()
   {
     return _xcenter - _size / 2;

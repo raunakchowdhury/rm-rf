@@ -1,4 +1,4 @@
-class PeaShooter
+class PeaShooter extends Character
 {
   //protected PShape[] _sprites;
   //protected int _HP;
@@ -19,7 +19,9 @@ class PeaShooter
   public PeaShooter()
   {
     _HP = 100;
-    _level = 4;
   }
+  
+  public void takeDamage()
+  {}
   
 }
