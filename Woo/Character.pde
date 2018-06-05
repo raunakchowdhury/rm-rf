@@ -5,6 +5,10 @@ abstract class Character {
   protected int _x;
   protected int _y;
 
+  public Character() {
+    _sprites = new PShape[5];
+  }
+
   public abstract void takeDamage();
 
   public int lane()
@@ -16,7 +20,11 @@ abstract class Character {
 
   public void display()
   {
-    PImage img = loadImage("garden.jpg");
-  background(img);
+    PImage img = loadImage("../garden.jpg");
+    background(img);
+    for (PShape sprite : _sprites) {
+      shape(sprite, 10, 10, 10, 10);
+      //print(sprite.isVisible());
+    }
   }
 }

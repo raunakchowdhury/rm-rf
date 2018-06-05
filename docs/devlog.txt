@@ -2,7 +2,7 @@ DEVLOG: Team rm-rf
 
 ------------------------------------
 Project Summary:
-We will be simulating the final level of Plants vs Zombies 1. The conventional PvZ games allow you to expand your garden-army of plants with sun; however, in the Zomboss boss fight (the final boss), there is no sun. Our project is an emulation of the boss fight against Zomboss. The goal of the player is to strategically place his or her plants such that none of the zombies or their weapons come into contact with the house. However, there will be some changes made: the actual level will take place in the Garden setpiece (which is flat with grass), there will be no pots, and there will be no advanced phases (ie. the phase were the Zomboss AoE attacks some of your plants by throwing a van on top of them). 
+We will be simulating the final level of Plants vs Zombies 1. The conventional PvZ games allow you to expand your garden-army of plants with sun; however, in the Zomboss boss fight (the final boss), there is no sun. Our project is an emulation of the boss fight against Zomboss. The goal of the player is to strategically place his or her plants such that none of the zombies or their weapons come into contact with the house. However, there will be some changes made: the actual level will take place in the Garden setpiece (which is flat with grass), there will be no pots, and there will be no advanced phases (ie. the phase were the Zomboss AoE attacks some of your plants by throwing a van on top of them).
 ------------------------------------
 Nomenclature:
 > R - Assigned to Raunak
@@ -19,7 +19,7 @@ Changes to Codebase:
 
 - Completed plan with assigned tasks (5/30/18) -N
 
-- Flowchart and UML (5/31/18) -N/F 
+- Flowchart and UML (5/31/18) -N/F
 - Added Character, Peashooter, Plant, Plot and Projectile classes (5/31/18) -N
 
 - Added abstracted zombie class (6/03/18) -R
@@ -30,6 +30,7 @@ Changes to Codebase:
 - Added LLNode, DLLNode, Queue, and LList (6/05/18) -F
 
 - Finished instantiation of Plots (6/05/18) -F
+- Added display method for Character and finished loading of sprites (6/05/18) -R
 ------------------------------------
 Tasks to Complete/Features to Implement:
 0. fill Character file completely, but comment out sprites (N)
@@ -45,7 +46,7 @@ Tasks to Complete/Features to Implement:
 		- protected Plot location
 		+ abstract void attack()
 2. Complete Projectile file (similar to Ball) (F)
-		- int _damage 
+		- int _damage
 		- int _dx
 		- int _dy
 		- int _x

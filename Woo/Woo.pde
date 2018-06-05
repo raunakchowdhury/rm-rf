@@ -12,13 +12,14 @@ private LList<Projectile>[] _projectiles; // projectiles in each lance
 private boolean _clicked; // can the player place down a plant or not
 private int _zombieSpawnRate; // controls spawn rate of zombie
 
-
+//private PeaShooter p;
+private PShape testShape;
 
 void setup() 
 { 
   size(1400, 600);
   constructor();
-
+  testShape = loadShape("peashooter0.svg");
   birthPlots();
 }
 
@@ -26,6 +27,8 @@ void draw()
 {
   PImage img = loadImage("../garden.jpg");
   background(img);
+  shape(testShape, 10, 10, 80, 80);
+  //p.display(); //was trying to test Char -R
 }
 void mouseClicked()
 {
@@ -45,6 +48,7 @@ void constructor()
   /////////////////////
   _clicked = false;
   _zombieSpawnRate = 0;
+  //p = new PeaShooter();
 }
 
 void birthPlots()
