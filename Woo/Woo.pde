@@ -24,7 +24,7 @@ void setup()
 
 void draw() 
 {
-  PImage img = loadImage("garden.jpg");
+  PImage img = loadImage("../garden.jpg");
   background(img);
 }
 void mouseClicked()
