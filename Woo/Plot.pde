@@ -3,32 +3,44 @@ class Plot
   /*instance vars*/
   private int _xcenter;
   private int _ycenter;
-  private int _size;
+  private int _xsize;
+  private int _ysize;
   private Plant _plant;
 
-  public Plot(int xcenter, int ycenter, int size)
+  public Plot(int xcenter, int ycenter, int xsize, int ysize)
   {
     _xcenter = xcenter;
     _ycenter = ycenter;
-    _size = size;
+    _xsize = xsize;
+    _ysize = ysize;
   }
 
   public int xmin()
   {
-    return _xcenter - _size / 2;
+    return _xcenter - _xsize / 2;
   }
   public int xmax()
   {
-    return _xcenter + _size / 2;
+    return _xcenter + _xsize / 2;
   }
   public int ymin()
   {
-    return _ycenter - _size / 2;
+    return _ycenter - _ysize / 2;
   }
   
   public int ymax()
   {
-    return _ycenter + _size / 2;
+    return _ycenter + _ysize / 2;
+  }
+  
+  public int getxcenter()
+  {
+    return _xcenter;
+  }
+  
+  public int getycenter()
+  {
+    return _ycenter;
   }
   
   public void implant(Plant plant)

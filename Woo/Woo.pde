@@ -17,8 +17,9 @@ private int _zombieSpawnRate; // controls spawn rate of zombie
 void setup() 
 { 
   size(1400, 600);
-  
-  
+  constructor();
+
+  birthPlots();
 }
 
 void draw() 
@@ -26,7 +27,6 @@ void draw()
   PImage img = loadImage("garden.jpg");
   background(img);
 }
-
 void mouseClicked()
 {
   //if (clicked == false)
@@ -45,4 +45,15 @@ void constructor()
   /////////////////////
   _clicked = false;
   _zombieSpawnRate = 0;
+}
+
+void birthPlots()
+{
+  for (int r = 0; r < 5; r++)
+  {
+    for (int c = 0; c < 9; c++)
+    {
+      _patches[r][c] = new Plot(295 + 2*c*40, 125 + 2*r*50, 80, 100);
+    }
+  }
 }
