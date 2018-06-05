@@ -17,6 +17,8 @@ private int _zombieSpawnRate; // controls spawn rate of zombie
 void setup() 
 { 
   size(1400, 600);
+  
+  
 }
 
 void draw() 
@@ -39,6 +41,8 @@ void constructor()
   _visibleZombies = new LList[5];
   _visiblePlants = new LList[5];
   _projectiles = new LList[5];
-  _clicked;
-  _zombieSpawnRate;
+
+  /////////////////////
+  _clicked = false;
+  _zombieSpawnRate = 0;
 }

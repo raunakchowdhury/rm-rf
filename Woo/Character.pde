@@ -6,8 +6,17 @@ abstract class Character {
   protected int _y;
 
   public abstract void takeDamage();
+
   public int lane()
   {
     return _lane;
+  }
+
+  public abstract void move();
+
+  public void display()
+  {
+    PImage img = loadImage("garden.jpg");
+  background(img);
   }
 }
