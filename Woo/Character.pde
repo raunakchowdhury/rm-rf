@@ -4,7 +4,7 @@ abstract class Character {
   protected int _lane;
   protected int _x;
   protected int _y;
-  
+
   public abstract void takeDamage();
   public int lane()
   {
