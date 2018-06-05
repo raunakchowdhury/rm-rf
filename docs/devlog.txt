@@ -26,6 +26,10 @@ Changes to Codebase:
 - Procured zombie and plant sprites (6/03/18) -F/R
 - Edited devlog (6/03/18) -F
 - Edited plan (6/03/08) -F
+
+- Added LLNode, DLLNode, Queue, and LList (6/05/18) -F
+
+- Finished instantiation of Plots (6/05/18) -F
 ------------------------------------
 Tasks to Complete/Features to Implement:
 0. fill Character file completely, but comment out sprites (N)
@@ -47,5 +51,14 @@ Tasks to Complete/Features to Implement:
 		- int _x
 		- int _y
 (see Plan for more)
+------------------------------------
+Issues to deal with:
+	(- for currently not dealt with)
+	(+ for dealt with)
+
+- LLNode, DLLNode, Queue, and LList have been added but haven't been tested
+- Woo.pde -> constructor(): zombieSpawnRate has been set to 0
+- Woo.pde -> mouseClicked(): condition for placing a plant is true instead of
+                             clicked == true
 ------------------------------------
 Cool Stuff that could be Added Later:

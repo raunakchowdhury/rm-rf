@@ -15,34 +15,30 @@ class Plot
     _ysize = ysize;
   }
 
-  public int xmin()
-  {
+  public int xmin() {
     return _xcenter - _xsize / 2;
   }
-  public int xmax()
-  {
+
+  public int xmax() {
     return _xcenter + _xsize / 2;
   }
-  public int ymin()
-  {
+
+  public int ymin() {
     return _ycenter - _ysize / 2;
   }
-  
-  public int ymax()
-  {
+
+  public int ymax() {
     return _ycenter + _ysize / 2;
   }
-  
-  public int getxcenter()
-  {
+
+  public int getxcenter() {
     return _xcenter;
   }
-  
-  public int getycenter()
-  {
+
+  public int getycenter() {
     return _ycenter;
   }
-  
+
   public void implant(Plant plant)
   {
     _plant = plant; // add a plant to the plot
@@ -54,7 +50,7 @@ class Plot
     _plant = null;
     return tmp;
   }
-  
+
   public Plant getPlant()
   {
     return _plant;
