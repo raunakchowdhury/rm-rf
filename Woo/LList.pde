@@ -34,8 +34,8 @@ public class LList<T>
 
   public DLLNode getNode( int index )
   {
-    if ( index < 0 || index >= size() )
-      throw new IndexOutOfBoundsException();
+    //if ( index < 0 || index >= size() )
+    //  throw new IndexOutOfBoundsException();
 
     DLLNode retVal;
     DLLNode tmp = _head; //create alias to head
@@ -50,7 +50,7 @@ public class LList<T>
   }
 
   //removes the node a and returns its cargo
-  public T remove( DLLNode a)
+  public T removeNode( DLLNode a)
   {
     DLLNode tmp = a;
 

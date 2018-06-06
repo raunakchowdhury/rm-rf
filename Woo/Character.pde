@@ -28,7 +28,7 @@ abstract class Character {
     _x = x;
     _y = y;
   }
-  public abstract void move();
+  //public abstract void move();
 
   //animate based on frame
   public void display()

@@ -11,7 +11,7 @@ abstract class Plant extends Character {
     _shoot = true;
   }
   public void display() {
-    if (shoot)
+    if (_shoot)
       attack();
     super.display();
   }
