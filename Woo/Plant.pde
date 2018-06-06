@@ -12,8 +12,8 @@ abstract class Plant extends Character {
   public void setPlot(Plot plot)
   {
     _location = plot;
-    super._x = plot.xcenter();
-    super._y = plot.ycenter();
+    super._x = plot.xmin();
+    super._y = plot.ymin();
     plot.implant(this);
   }
   public void setXY(int x, int y)

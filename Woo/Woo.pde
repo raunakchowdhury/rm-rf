@@ -36,8 +36,8 @@ void draw()
 }
 void mouseClicked()
 {
-  if (_clicked == false && mouseX - _plants.peekFront().getX() < 100 &&
-    mouseX - _plants.peekFront().getX() > -100)
+  if (_clicked == false && mouseX - p.getX() < 100 &&
+    mouseX - p.getX() > -100 && mouseY - p.getY() < 100 && mouseY - p.getY() > -100)
     _clicked = true;
   if (_clicked == true)
     for (int i = 0; i < 45; i++)
@@ -74,7 +74,7 @@ void birthPlots()
   {
     for (int c = 0; c < 9; c++)
     {
-      _patches[r][c] = new Plot(255 + 80*c, 75 + 100*r, 80, 100);
+      _patches[r][c] = new Plot(295 + 80*c, 125 + 100*r, 80, 100);
     }
   }
 }

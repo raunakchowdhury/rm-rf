@@ -34,7 +34,7 @@ abstract class Character {
   public void display()
   {
     //image(_sprites[0], 10, 10);
-    frame = (frame+1) % 5;
-    image(_sprites[frame], _x, _y);
+    frame = (frame+1) % 10;
+    image(_sprites[frame/2], _x, _y);
   }
 }
