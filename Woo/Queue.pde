@@ -1,4 +1,4 @@
-public class Queue<Quasar>
+class Queue<Quasar>
 {
   LLNode<Quasar> _front;
   LLNode<Quasar> _back;
@@ -60,10 +60,5 @@ public class Queue<Quasar>
   public Quasar peekFront()
   {
     return _front.getValue();
-  }
-
-  public void sop(Object x)
-  {
-    System.out.println(x);
   }
 }

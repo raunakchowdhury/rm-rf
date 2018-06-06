@@ -31,11 +31,11 @@ class Plot
     return _ycenter + _ysize / 2;
   }
 
-  public int getxcenter() {
+  public int xcenter() {
     return _xcenter;
   }
 
-  public int getycenter() {
+  public int ycenter() {
     return _ycenter;
   }
 

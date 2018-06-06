@@ -21,7 +21,7 @@ void setup()
   constructor();
 
   birthPlots();
-  p = new PeaShooter();
+  birthPlants();
 }
 
 void draw() 
@@ -29,12 +29,27 @@ void draw()
   PImage img = loadImage("../garden.jpg");
   background(img);
   //image(sh, width/2, height/2);
-  p.display(); //was trying to test Char -R
+  //_nextPlants.getNode(0).getCargo().setXY(10, 10);
+  //_nextPlants.getNode(0).getCargo().display(); //can't tell why this is cause bug
   //background(img);
+  p.display();
 }
 void mouseClicked()
 {
-  //if (clicked == false)
+  if (_clicked == false && mouseX - _plants.peekFront().getX() < 100 &&
+    mouseX - _plants.peekFront().getX() > -100)
+    _clicked = true;
+  if (_clicked == true)
+    for (int i = 0; i < 45; i++)
+      if (mouseX < _patches[i / 9][i % 9].xmax() &&
+        mouseX > _patches[i / 9][i % 9].xmin() &&
+        mouseY > _patches[i / 9][i % 9].ymin() &&
+        mouseY < _patches[i / 9][i % 9].ymax()) {
+          p.setPlot(_patches[i / 9][i % 9]);
+        //_visiblePlants[i / 9].add(_nextPlants.remove());
+        //(Plant)(_visiblePlants[i / 9].getNode(0)).setPlot(_patches[i / 9][i % 9]);
+        _clicked = false;
+      }
 }
 
 void constructor()
@@ -59,7 +74,16 @@ void birthPlots()
   {
     for (int c = 0; c < 9; c++)
     {
-      _patches[r][c] = new Plot(295 + 2*c*40, 125 + 2*r*50, 80, 100);
+      _patches[r][c] = new Plot(255 + 80*c, 75 + 100*r, 80, 100);
     }
   }
+}
+
+void birthPlants()
+{
+  //for (int i = 0; i < 15; i++)
+  //{
+  p = new PeaShooter();
+  //_nextPlants.enqueue(p);
+  //}
 }

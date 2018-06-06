@@ -2,6 +2,8 @@ class PeaShooter extends Plant
 {
   protected int _rechargeRate;
   protected int _damage;
+  private int _x;
+  private int _y;
   public PeaShooter()
   {
     super();
@@ -17,10 +19,11 @@ class PeaShooter extends Plant
   public void takeDamage()
   {
   }
-
+  
   public void display() {
     super.display();
   }
   public void attack()
-  {}
+  {
+  }
 }

@@ -1,4 +1,4 @@
-public class LLNode<T> {
+class LLNode<T> {
 
   private T _cargo;    //cargo may only be of type T
   private LLNode<T> _nextNode; //pointer to next LLNode

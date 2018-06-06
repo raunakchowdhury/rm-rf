@@ -70,6 +70,14 @@ public class LList<T>
     _size--;
     return (T) tmp.getCargo();
   }
+  
+  public T remove()
+  {
+    DLLNode<T> temp = _head;
+    _head.getNext().setPrev(null);
+    _head = _head.getNext();
+    return temp.getCargo();
+  }
 
   //return data in element at position i
   public T get( int i )

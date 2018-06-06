@@ -9,14 +9,25 @@ abstract class Character {
   public Character() {
     _sprites = new PImage[5];
   }
-
+  public int getX()
+  {
+    return _x;
+  }
+  public int getY()
+  {
+    return _y;
+  }
   public abstract void takeDamage();
 
   public int lane()
   {
     return _lane;
   }
-
+  public void setXY(int x, int y)
+  {
+    _x = x;
+    _y = y;
+  }
   public abstract void move();
 
   //animate based on frame
@@ -24,6 +35,6 @@ abstract class Character {
   {
     //image(_sprites[0], 10, 10);
     frame = (frame+1) % 5;
-    image(_sprites[frame], 10, 10);
+    image(_sprites[frame], _x, _y);
   }
 }
