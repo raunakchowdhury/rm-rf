@@ -31,6 +31,6 @@ There will be two inheritance trees: Plants and Zombies.
 Shovels will be used to remove plants.
 
 # How to Run:
-0. Run Woo.java
+0. Run Woo.pde
 1. Click on plants in the Queue to place them on the plots, by clicking again
 2. Place the plants strategically so no zombies can get past the plants to the house
