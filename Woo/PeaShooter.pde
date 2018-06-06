@@ -1,4 +1,4 @@
-class PeaShooter extends Character
+class PeaShooter extends Plant
 {
   protected int _rechargeRate;
   protected int _damage;
@@ -7,7 +7,8 @@ class PeaShooter extends Character
     super();
     _HP = 100;
     for (int i = 0; i < _sprites.length; i++) {
-      _sprites[i] = loadShape("../sprites/peashooter/peashooter" + i + ".svg");
+      _sprites[i] = loadImage("peashooter0.png");
+      //_sprites[i] = loadShape("../sprites/peashooter/peashooter" + i + ".svg");
     }
   }
   public void move()
@@ -20,4 +21,6 @@ class PeaShooter extends Character
   public void display() {
     super.display();
   }
+  public void attack()
+  {}
 }

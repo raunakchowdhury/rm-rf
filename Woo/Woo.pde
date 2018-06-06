@@ -14,21 +14,23 @@ private int _zombieSpawnRate; // controls spawn rate of zombie
 
 //private PeaShooter p;
 private PShape testShape;
-
+private Plant p;
 void setup() 
 { 
   size(1400, 600);
   constructor();
-  testShape = loadShape("peashooter0.svg");
+
   birthPlots();
+  p = new PeaShooter();
 }
 
 void draw() 
 {
   PImage img = loadImage("../garden.jpg");
   background(img);
-  shape(testShape, 10, 10, 80, 80);
-  //p.display(); //was trying to test Char -R
+  PImage sh = loadImage("peashooter0.jpg");
+  //image(sh, width/2, height/2);
+  p.display(); //was trying to test Char -R
 }
 void mouseClicked()
 {
