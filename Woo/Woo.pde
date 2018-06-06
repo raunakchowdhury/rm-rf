@@ -28,9 +28,9 @@ void draw()
 {
   PImage img = loadImage("../garden.jpg");
   background(img);
-  PImage sh = loadImage("peashooter0.jpg");
   //image(sh, width/2, height/2);
   p.display(); //was trying to test Char -R
+  //background(img);
 }
 void mouseClicked()
 {
