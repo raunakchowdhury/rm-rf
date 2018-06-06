@@ -28,12 +28,10 @@ void draw()
 {
   PImage img = loadImage("../garden.jpg");
   background(img);
-  //image(sh, width/2, height/2);
-  //_nextPlants.getNode(0).getCargo().setXY(10, 10);
-  //_nextPlants.getNode(0).getCargo().display(); //can't tell why this is cause bug
-  //background(img);
   p.display();
+  
 }
+
 void mouseClicked()
 {
   if (_clicked == false && mouseX - p.getX() < 100 &&
@@ -46,8 +44,7 @@ void mouseClicked()
         mouseY > _patches[i / 9][i % 9].ymin() &&
         mouseY < _patches[i / 9][i % 9].ymax()) {
           p.setPlot(_patches[i / 9][i % 9]);
-        //_visiblePlants[i / 9].add(_nextPlants.remove());
-        //(Plant)(_visiblePlants[i / 9].getNode(0)).setPlot(_patches[i / 9][i % 9]);
+          p.allowToShoot();
         _clicked = false;
       }
 }
@@ -86,4 +83,9 @@ void birthPlants()
   p = new PeaShooter();
   //_nextPlants.enqueue(p);
   //}
+}
+
+void movePlants()
+{
+
 }

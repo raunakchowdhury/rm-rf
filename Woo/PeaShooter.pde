@@ -8,22 +8,24 @@ class PeaShooter extends Plant
   {
     super();
     _HP = 100;
+    _shootRate = 50;
     for (int i = 0; i < _sprites.length; i++) {
       //_sprites[i] = loadImage("peashooter0.png");
       _sprites[i] = loadImage("../sprites/peashooter/peashooter" + i + ".png");
     }
   }
-  public void move()
-  {
-  }
   public void takeDamage()
   {
   }
-  
+
   public void display() {
     super.display();
   }
-  public void attack()
+  public Projectile attack()
   {
+    _ctr = _ctr % _shootRate + 1;
+    if (_ctr == 1)
+      return new Projectile(_location.xcenter(), _location.ycenter(), 10, 0, 15);
+     return null;
   }
 }
