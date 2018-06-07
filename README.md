@@ -1,7 +1,7 @@
 # Team rm-rf -- T. Fabiha, Nadie Jackson
 ### APCS2 pd2
 ### HW61 -- On Target
-### 2018-06-05
+### 2018-06-07
 
 # Plants vs. Zombies - Zomboss Fight
  We are simulating the final level of Plants vs Zombies 1. The conventional PvZ games allow you to expand your garden-army of plants with sun; however, in the Zomboss boss fight (the final boss), there is no sun. Instead, plants are automatically generated for you.
@@ -15,8 +15,6 @@
 
   Plants, if they can shoot, will automatically shoot at either the Zomboss and incoming zombies. They cannot shoot at zombies outside of the lane that they are on. Obviously, barrier plants like the Wall-Nut cannot shoot at zombies.
 
-  You can consult the "Scores" tab to see your highest score (as you play the game multiple times, the leaderboard will sort itself automatically. See "Quicksort.")
-
   See the diagram below for further reference.
   [ADD DIAGRAM HERE]
 ## UI
@@ -28,11 +26,7 @@
 We will simulate a feeder belt with plants with a Queue. We are still unsure of how to do the animation; however, the MVP will be that the card simply appears in the Queue (ie. no sliding along; it’ll just pop into existence)
 
 To randomly generate zombies and plants, we will be using two queues. At every attempt of generation, the relevant queue will be consulted. Each queue will store the different class types of plants and zombies that could be generated.
-## Quicksort Algorithm
-Sorting the times for leaderboard after completion of the game.
-  - minHeap and maxHeap will be used for this.
 
-Running time median to record average time taken to beat the game
 ## DoublyLinkedLists
 Will store the projectiles, plants and zombies currently on the screen. Will allow for O(1) removal runtime, which increases efficiency.
 
@@ -42,22 +36,23 @@ Zombies will move in fixed lanes.
 
 There will be two inheritance trees: Plants and Zombies.
 	- Plants
-    - Peashooter
+		- Peashooter
 		- Wall-Nut
 	- Zombies
 		- Regular Zombie
-Shovels will be used to remove plants.
 
 # How to Run:
 0. Run Woo.pde.
-  - Run the following commands:
+  - Run the following commands in the terminal:
   ```
   cd Woo
   processing Woo.pde
+  - Type the following command on the keyboard
+  C-r
   ```
 1. You will be introduced to the game via the start screen. Click anywhere to start.
-2. Click on plants in the Queue (see the section in the UI) to place them on the plots, by clicking again
+2. Click on a plot of grass to place the next plant (displayed in top left corner).
 3. Place the plants strategically so no zombies can get past the plants to the house.
   - Wincon: Zomboss health is depleted
   - Losecon: Zombies reach the other side (you're a skrub if you lose)
-4. If you win/lose, you will be led to the respective screen. Click anywhere to continue.
+4. If you win/lose, you will be led to the respective screen. Click anywhere to restart.
