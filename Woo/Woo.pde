@@ -17,7 +17,7 @@ private PShape testShape;
 private Plant p;
 void setup() 
 { 
-  size(960, 600);
+  size(950, 600);
   constructor();
 
   birthPlots();
@@ -26,7 +26,7 @@ void setup()
 
 void draw() 
 {
-  PImage img = loadImage("../garden.jpg");
+  PImage img = loadImage("../pvz1.jpg");
   background(img);
   displayAll();
 
@@ -37,23 +37,38 @@ void mouseClicked()
 {
   /*
   if (_clicked == false && mouseX - p.getX() < 100 &&
-    mouseX - p.getX() > -100 && mouseY - p.getY() < 100 && mouseY - p.getY() > -100)
-    _clicked = true;
-    */
+   mouseX - p.getX() > -100 && mouseY - p.getY() < 100 && mouseY - p.getY() > -100)
+   _clicked = true;
+   */
   if (_clicked == true)
     p = _plants.dequeue();
 
-  for (int i = 0; i < 45; i++)
-    if (mouseX < _patches[i / 9][i % 9].xmax() &&
-      mouseX > _patches[i / 9][i % 9].xmin() &&
-      mouseY > _patches[i / 9][i % 9].ymin() &&
-      mouseY < _patches[i / 9][i % 9].ymax()) {
-      p.setPlot(_patches[i / 9][i % 9]);
-      p.allowToShoot();
-      _visiblePlants[i/9].add(p);
-      // _visiblePlants.add(p);
-      //_clicked = false;
+  for (int r = 0; r < 5; r++)
+  {
+    for (int c = 0; c < 9; c++)
+    {
+      if (mouseX  > _patches[r][c].xmin() && mouseX  < _patches[r][c].xmax()
+        &&  mouseY  > _patches[r][c].ymin() && mouseY  < _patches[r][c].ymax())
+      {
+        p.setPlot(_patches[r][c]);
+        p.allowToShoot();
+        _visiblePlants[r].add(p);
+      }
     }
+  }
+
+  /*
+  for (int i = 0; i < 45; i++)
+   if (mouseX < _patches[i / 9][i % 9].xmax() &&
+   mouseX > _patches[i / 9][i % 9].xmin() &&
+   mouseY > _patches[i / 9][i % 9].ymin() &&
+   mouseY < _patches[i / 9][i % 9].ymax()) {
+   p.setPlot(_patches[i / 9][i % 9]);
+   p.allowToShoot();
+   _visiblePlants[i/9].add(p);
+   // _visiblePlants.add(p);
+   //_clicked = false;
+   }*/
 }
 
 void constructor()
@@ -85,14 +100,14 @@ void birthPlots()
   {
     for (int c = 0; c < 9; c++)
     {
-      _patches[r][c] = new Plot(295 + 80*c, 125 + 100*r, 80, 100);
+      _patches[r][c] = new Plot(214 + 80*c, 125 + 100*r, 80, 100);
     }
   }
 }
 
 void birthPlants()
 {
-  for (int i = 0; i < 15; i++)
+  for (int i = 0; i < 50; i++)
   {
     p = new PeaShooter();
     _plants.enqueue(p);
