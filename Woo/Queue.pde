@@ -61,4 +61,9 @@ class Queue<Quasar>
   {
     return _front.getValue();
   }
+  
+  public int size()
+  {
+    return _size;
+  }
 }

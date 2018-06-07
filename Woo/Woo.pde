@@ -58,6 +58,10 @@ void play()
     _ctr = 0;
   }
   _ctr++;
+  if (_plants.size() < 5)
+  {
+    birthPlants();
+  }
 }
 
 void win()
@@ -144,6 +148,7 @@ void constructor()
   _zb = new Zomboss();
   _section = 0;
   _ctr = -50;
+  _zombieSpawnRate = 15;
 
   //instantiates a list at each lane for zombies, plants, and projectiles
   for (int i = 0; i < 5; i++)
@@ -152,9 +157,6 @@ void constructor()
     _visiblePlants[i] = new LList<Plant>();
     _projectiles[i] = new LList<Projectile>();
   }
-
-  /////////////////////
-  _zombieSpawnRate = 15;
 }
 
 //=============BIRTH METHODS====================
