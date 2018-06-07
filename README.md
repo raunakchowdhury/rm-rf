@@ -20,14 +20,18 @@
   See the diagram below for further reference.
   [ADD DIAGRAM HERE]
 ## UI
-  Upon running, the user will be presented with a classic garden level and several other features reminiscent of the Zomboss boss fight. The picture below displays the UI during the game:
-  [ADD PICTURE HERE]
+  Upon running, the user will be presented with a classic garden level and several other features reminiscent of the Zomboss boss fight.
+
+   The picture below displays the UI during the game:
+   [ADD PICTURE HERE]
 ## Queues
 We will simulate a feeder belt with plants with a Queue. We are still unsure of how to do the animation; however, the MVP will be that the card simply appears in the Queue (ie. no sliding along; it’ll just pop into existence)
+
 To randomly generate zombies and plants, we will be using two queues. At every attempt of generation, the relevant queue will be consulted. Each queue will store the different class types of plants and zombies that could be generated.
 ## Quicksort Algorithm
 Sorting the times for leaderboard after completion of the game.
-minHeap and maxHeap
+  - minHeap and maxHeap will be used for this.
+
 Running time median to record average time taken to beat the game
 ## DoublyLinkedLists
 Will store the projectiles, plants and zombies currently on the screen. Will allow for O(1) removal runtime, which increases efficiency.
