@@ -2,8 +2,6 @@ class PeaShooter extends Plant
 {
   protected int _rechargeRate;
   protected int _damage;
-  private int _x;
-  private int _y;
   public PeaShooter()
   {
     super();
@@ -16,9 +14,6 @@ class PeaShooter extends Plant
     _seedPacket = loadImage("../sprites/seed-packs/peashooter-packet.png");
   }
 
-  public void display() {
-    super.display();
-  }
   public Projectile attack()
   {
     _ctr = _ctr % _shootRate + 1;

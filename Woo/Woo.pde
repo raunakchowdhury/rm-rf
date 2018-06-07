@@ -172,9 +172,16 @@ void birthPlots()
 
 void birthPlants()
 {
+  Plant p = null;
   for (int i = 0; i < 50; i++)
   {
-    Plant p = new PeaShooter();
+    int rand = (int) random(0, 5);
+    if (rand < 2)
+    {
+      p = new WallNut();
+    } else {
+      p = new PeaShooter();
+    }
     _plants.enqueue(p);
   }
 }
