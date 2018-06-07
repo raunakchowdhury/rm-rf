@@ -6,12 +6,12 @@
 # Plants vs. Zombies - Zomboss Fight
  We are simulating the final level of Plants vs Zombies 1. The conventional PvZ games allow you to expand your garden-army of plants with sun; however, in the Zomboss boss fight (the final boss), there is no sun. Instead, plants are automatically generated for you.
  This will include two data structures we learned this year.
-##How the Game Works
+## How the Game Works
   At startup, arrays of linked lists of each type (Plot, Plant, Zombie, and Projectile) will be created. Woo.pde controls all movement and display decisions (ie. when to move the zombies and projectiles, and when to display everything).
 
   All other classes supplement Woo with accessor methods and store essential values like coordinates and how exactly to move and display themselves (Woo calls these other functions.)
 
-  You ca consult the "Scores" tab to see your highest score (as you play the game multiple times, the leaderboard will sort itself automatically. See "Quicksort.")
+  You can consult the "Scores" tab to see your highest score (as you play the game multiple times, the leaderboard will sort itself automatically. See "Quicksort.")
 
   See the diagram below for further reference.
   [ADD DIAGRAM HERE]
@@ -31,14 +31,11 @@ Each ADT will be taken by one developer.
 The placement of the plants will be determined via a matrix.
 Zombies will move in fixed lanes.
 There will be two inheritance trees: Plants and Zombies.
-	Plants
-		Peashooter
-		Wall-Nut
-	Zombies
-		Regular Zombie
-		Cone Zombie
-		Bucket Zombie
-		Gargantuar
+	- Plants
+    - Peashooter
+		- Wall-Nut
+	- Zombies
+		- Regular Zombie
 Shovels will be used to remove plants.
 
 # How to Run:
