@@ -45,7 +45,7 @@ class Zombie extends Character {
     {
       DLLNode dl = plants.getNode(c);
       Plant pl = (Plant) dl.getCargo();
-      if (pl != null && getX() - pl.getX() < _rad && getX() - pl.getX() > 0)
+      if (pl != null && getX() - pl.getX() < _rad && getX() - pl.getX() > -1 * _rad)
       {
         _speed = 0;
         return dl;

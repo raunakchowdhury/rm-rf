@@ -36,7 +36,7 @@ class Projectile
     {
       DLLNode dl = zombies.getNode(c);
       Zombie z = (Zombie) dl.getCargo();
-      if (z != null && z.getX() - getX() <= _radius && z.getX() - getX() >= 0)
+      if (z != null && z.getX() - getX() <= _radius && z.getX() - getX() > -1 * _radius)
       {
         return dl;
       }

@@ -10,8 +10,9 @@ private LList<Projectile>[] _projectiles; // projectiles in each lance
 
 private int _zombieSpawnRate; // controls spawn rate of zombie
 private int _cooldown;
-private final int _CDRATE = 1;
+private final int _CDRATE = 10;
 private int _section;
+private int _ctr;
 
 private Zomboss _zb;
 
@@ -42,7 +43,7 @@ void draw()
 
 void play() 
 {
-  PImage img = loadImage("../pvz1.jpg");
+  PImage img = loadImage("../sprites/screen/play-screen.jpg");
   background(img);
   displayAll(); // calls display() for all visible plants, zombies, and projectiles
   moveAll(); // calls move() for all visible plants and projectiles
@@ -50,6 +51,12 @@ void play()
   _cooldown++;
   if (_zb.getHP() <= 0)
     _section = 2;
+  if (_ctr % _zombieSpawnRate == 0 && _ctr >= 0)
+  {
+    spawnZombie();
+    _ctr = 0;
+  }
+  _ctr++;
 }
 
 void win()
@@ -101,8 +108,14 @@ void mouseClicked()
   }
 }
 
-void keyPressed()
-{
+//void keyPressed()
+//{
+//  int lane = (int) random(0, 5);
+//  int ycor = (int) random(_patches[lane][0].ymin() + 40, _patches[lane][0].ymax() - 40);
+//  Zombie z = new Zombie(ycor);
+//  _visibleZombies[lane].add(z);
+//}
+void spawnZombie() {
   int lane = (int) random(0, 5);
   int ycor = (int) random(_patches[lane][0].ymin() + 40, _patches[lane][0].ymax() - 40);
   Zombie z = new Zombie(ycor);
@@ -120,6 +133,7 @@ void constructor()
   _projectiles = new LList[5];
   _zb = new Zomboss();
   _section = 1;
+  _ctr = -50;
 
   //instantiates a list at each lane for zombies, plants, and projectiles
   for (int i = 0; i < 5; i++)
@@ -130,7 +144,7 @@ void constructor()
   }
 
   /////////////////////
-  _zombieSpawnRate = 0;
+  _zombieSpawnRate = 15;
 }
 
 //=============BIRTH METHODS====================
@@ -211,7 +225,7 @@ void displayNext()
   else {
     fill(255, 0, 0);
   }
-  rect(10, 10, 145, 150, 10);
+  rect(10, 10, 140, 150, 10);
   fill(0, 0, 0);
   textSize(15);
   text("Next Plant:", 20, 50);
@@ -226,8 +240,8 @@ void displayNext()
 void moveAll()
 {
   movePlants();
-  moveProjectiles();
   moveZombies();
+  moveProjectiles();
 }
 
 void movePlants()
@@ -266,7 +280,7 @@ void moveProjectiles()
       //resets the projectiles's x coordinate
       Projectile pj = (Projectile) _projectiles[r].get(c);
       DLLNode dl = pj.move(_visibleZombies[r]);
-      if (pj.getX() > 850)
+      if (pj.getX() > 900)
       {
         _zb.takeDamage(pj.getDmg());
         _projectiles[r].remove(c);
