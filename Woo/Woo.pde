@@ -200,7 +200,7 @@ void moveProjectiles()
       //resets the projectiles's x coordinate
       Projectile pj = (Projectile) _projectiles[r].get(c);
       pj.move();
-      if (pj.getx() >= width && pj.gety() >= height) //if it's supposed to be placed out of the screen
+      if (pj.getX() >= width && pj.getY() >= height) //if it's supposed to be placed out of the screen
       {
         _projectiles[r].remove(c);
         c--;

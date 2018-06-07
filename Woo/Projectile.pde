@@ -18,10 +18,10 @@ class Projectile
     _radius = rad;
   }
 
-  public int getx() {
+  public int getX() {
     return _x;
   }
-  public int gety() {
+  public int getY() {
     return _y;
   }
   public void move()
@@ -34,7 +34,7 @@ class Projectile
     fill(111, 139, 0);
     ellipse(_x, _y, _radius, _radius);
     noStroke();
-    fill(111, 220, 0);
+    fill(111, 255, 0);
     ellipse(_x, _y, _radius-2, _radius-2);
   }
 }
