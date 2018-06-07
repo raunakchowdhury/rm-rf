@@ -7,6 +7,7 @@ private Queue<Zombie> _zombies; // has all the randomly generated order of zombi
 private LList<Zombie>[] _visibleZombies; // zombies in each lane
 private LList<Plant>[] _visiblePlants; // plants in each lane
 private LList<Projectile>[] _projectiles; // projectiles in each lance
+private PImage _screen;
 
 private int _zombieSpawnRate; // controls spawn rate of zombie
 private int _cooldown;
@@ -29,7 +30,7 @@ void draw()
 {
   if (_section == 0)
   {
-    //startScreen();
+    startScreen();
   } else if (_section == 1)
   { 
     play();
@@ -43,8 +44,8 @@ void draw()
 
 void play() 
 {
-  PImage img = loadImage("../sprites/screen/play-screen.jpg");
-  background(img);
+  _screen = loadImage("../sprites/screen/play-screen.jpg");
+  background(_screen);
   displayAll(); // calls display() for all visible plants, zombies, and projectiles
   moveAll(); // calls move() for all visible plants and projectiles
 
@@ -61,16 +62,16 @@ void play()
 
 void win()
 {
-  background(0, 0, 0);
+  _screen = loadImage("../sprites/screen/win-screen.jpg");
+  background(_screen);
   textSize(50);
   text("You win!!!!! :)", 300, 300);
 }
 
 void lose()
 {
-  background(0, 0, 0);
-  textSize(50);
-  text("You lose!!!!! :(", 300, 300);
+  _screen = loadImage("../sprites/screen/lose-screen.jpg");
+  background(_screen);
 }
 
 /*---------NOTES SECTION/TODO------------
@@ -84,27 +85,36 @@ void lose()
 
 void mouseClicked()
 {
-  if ( _cooldown > _CDRATE) {
+  if (_section == 0) {
+    _section = 1;
+  } else if (_section == 1) {
+    if ( _cooldown > _CDRATE) {
 
-    Plant p = _plants.dequeue(); //takes one out of the _plants queue to add to _visiblePlants
+      Plant p = _plants.dequeue(); //takes one out of the _plants queue to add to _visiblePlants
 
-    for (int r = 0; r < 5; r++) // r is the row, otherwise known as lance
-    {
-      for (int c = 0; c < 9; c++) // c is the index number in each list
+      for (int r = 0; r < 5; r++) // r is the row, otherwise known as lance
       {
-        if (mouseX  > _patches[r][c].xmin() && mouseX  < _patches[r][c].xmax() // if within the width of a Plot &&
-          &&  mouseY  > _patches[r][c].ymin() && mouseY  < _patches[r][c].ymax()) // if within the height of a Plot
+        for (int c = 0; c < 9; c++) // c is the index number in each list
         {
-          if (_patches[r][c].getPlant() == null) //check to see if the plot is empty
-          { 
-            p.setPlot(_patches[r][c]);
-            p.setLane(r);
-            _visiblePlants[r].add(p);
+          if (mouseX  > _patches[r][c].xmin() && mouseX  < _patches[r][c].xmax() // if within the width of a Plot &&
+            &&  mouseY  > _patches[r][c].ymin() && mouseY  < _patches[r][c].ymax()) // if within the height of a Plot
+          {
+            if (_patches[r][c].getPlant() == null) //check to see if the plot is empty
+            { 
+              p.setPlot(_patches[r][c]);
+              p.setLane(r);
+              _visiblePlants[r].add(p);
+            }
           }
         }
       }
+      _cooldown = 0;
     }
-    _cooldown = 0;
+  } else
+  {
+    constructor();//adding options later
+    birthPlots(); //creates Plot elements for every place in _patches
+    birthPlants(); //creates the _plants queue
   }
 }
 
@@ -132,7 +142,7 @@ void constructor()
   _visiblePlants = new LList[5];
   _projectiles = new LList[5];
   _zb = new Zomboss();
-  _section = 1;
+  _section = 0;
   _ctr = -50;
 
   //instantiates a list at each lane for zombies, plants, and projectiles
@@ -323,5 +333,10 @@ void moveZombies()
       }
     }
   }
+}
+void startScreen()
+{
+  _screen = loadImage("../sprites/screen/start-screen.jpg");
+  background(_screen);
 }
 //==============================================
