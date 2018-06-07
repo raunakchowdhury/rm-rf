@@ -15,10 +15,7 @@ abstract class Plant extends Character {
   public boolean shoot() {
     return _shoot;
   }
-  //set the lane
-  public void setLane(int lane) {
-    _lane = lane;
-  }
+
   public void display() {
     //print(_shoot);
     super.display();

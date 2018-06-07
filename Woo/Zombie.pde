@@ -1,5 +1,6 @@
 class Zombie extends Character {
   protected int _speed;
+  private Plot _currPlot; //zombie's current plot
 
   public Zombie() {
     _HP = 20;
@@ -13,6 +14,7 @@ class Zombie extends Character {
   }
   public void display() {
     //if (no plants in front)
+    _x -=5;
     super.display();
     //else, go to displayattack
   }
@@ -24,4 +26,6 @@ class Zombie extends Character {
 
   public void takeDamage() {
   }
+  
+  
 }

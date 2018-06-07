@@ -28,7 +28,11 @@ abstract class Character {
     _x = x;
     _y = y;
   }
-  //public abstract void move();
+  
+    //set the lane
+  public void setLane(int lane) {
+    _lane = lane;
+  }
 
   //animate based on frame
   public void display()

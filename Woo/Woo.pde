@@ -97,6 +97,7 @@ void constructor()
   _zombieSpawnRate = 0;
 }
 
+//=============BIRTH METHODS====================
 void birthPlots()
 {
   //modularized by replacing numbers with length -R
@@ -117,7 +118,9 @@ void birthPlants()
     _plants.enqueue(p);
   }
 }
+//==============================================
 
+//===============DISPLAY METHODS===================
 void displayAll()
 {
   displayPlants();
@@ -163,9 +166,10 @@ void displayProjectiles()
     }
   }
 }
+//==============================================
 
 
-
+//==================MOVE METHODS================
 void moveAll()
 {
   movePlants();
@@ -209,3 +213,4 @@ void moveProjectiles()
     }
   }
 }
+//==============================================
