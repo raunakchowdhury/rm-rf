@@ -31,6 +31,10 @@ class Projectile
   }
   public void display()
   {
+    fill(111, 139, 0);
     ellipse(_x, _y, _radius, _radius);
+    noStroke();
+    fill(111, 220, 0);
+    ellipse(_x, _y, _radius-2, _radius-2);
   }
 }

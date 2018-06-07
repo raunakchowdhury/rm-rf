@@ -194,7 +194,8 @@ void moveProjectiles()
 {
   for (int r = 0; r < _projectiles.length; r++)
   {
-    for (int c = 0; c < _projectiles[r].size(); c++)
+    int c = 0;
+    while (c < _projectiles[r].size())
     {
       //resets the projectiles's x coordinate
       Projectile pj = (Projectile) _projectiles[r].get(c);
@@ -202,7 +203,9 @@ void moveProjectiles()
       if (pj.getx() >= width && pj.gety() >= height) //if it's supposed to be placed out of the screen
       {
         _projectiles[r].remove(c);
+        c--;
       }
+      c++;
     }
   }
 }
