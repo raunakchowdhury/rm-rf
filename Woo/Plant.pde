@@ -10,9 +10,17 @@ abstract class Plant extends Character {
   {
     _shoot = true;
   }
+
+  //accessor for shoot
+  public boolean shoot() {
+    return _shoot;
+  }
+  //set the lane
+  public void setLane(int lane) {
+    _lane = lane;
+  }
   public void display() {
-    if (_shoot)
-      attack();
+    //print(_shoot);
     super.display();
   }
   public void setPlot(Plot plot)

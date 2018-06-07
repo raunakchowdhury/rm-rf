@@ -33,6 +33,14 @@ void draw()
   movePlants();
 }
 
+/*---------NOTES SECTION/TODO------------
+1. When are plants transferred from the plants queue into the visiblePlants array?
+2. Zombie generation?
+3. Please smooth out code, there are places where this can be improved
+4. COMMENT COMMENT COMMENT, ONLY WAY WE ARE GOING TO FINISH
+------------------------------------*/
+
+
 void mouseClicked()
 {
   /*
@@ -50,13 +58,17 @@ void mouseClicked()
       if (mouseX  > _patches[r][c].xmin() && mouseX  < _patches[r][c].xmax()
         &&  mouseY  > _patches[r][c].ymin() && mouseY  < _patches[r][c].ymax())
       {
-        p.setPlot(_patches[r][c]);
-        p.allowToShoot();
-        _visiblePlants[r].add(p);
+        if (_patches[r][c].getPlant() == null) { //check to see if the plot is empty
+          p.setPlot(_patches[r][c]);
+          p.setLane(r);
+          p.allowToShoot();
+          _visiblePlants[r].add(p);
+        }
       }
     }
   }
 
+// --------What's this? -R ------------
   /*
   for (int i = 0; i < 45; i++)
    if (mouseX < _patches[i / 9][i % 9].xmax() &&
@@ -96,9 +108,10 @@ void constructor()
 
 void birthPlots()
 {
-  for (int r = 0; r < 5; r++)
+  //modularized by replacing numbers with length -R
+  for (int r = 0; r < _patches.length; r++) 
   {
-    for (int c = 0; c < 9; c++)
+    for (int c = 0; c < _patches[0].length; c++)
     {
       _patches[r][c] = new Plot(214 + 80*c, 125 + 100*r, 80, 100);
     }
@@ -124,8 +137,8 @@ void displayAll()
 void displayZombies()
 {
   DLLNode nowNode = null;
-
-  for (int r = 0; r < 5; r++)
+  //modularized by replacing numbers with length -R
+  for (int r = 0; r < _visibleZombies.length; r++)
   {
     nowNode = _visibleZombies[r].getNode(0);
     if (nowNode == null)
@@ -140,11 +153,16 @@ void displayZombies()
   }
 }
 
+/* Displays all plants in accordance to their array.
+   If they shoot, the projectiles will be displayed as well.
+   -R
+ */
 void displayPlants()
 {
   DLLNode nowNode = null;
-
-  for (int r = 0; r < 5; r++)
+  Plant plant = null;
+  //modularized by replacing numbers with length -R
+  for (int r = 0; r < _visiblePlants.length; r++)
   {
     nowNode = _visiblePlants[r].getNode(0);
     if (nowNode == null)
@@ -153,7 +171,11 @@ void displayPlants()
     }
     while (nowNode != null)
     {
-      ((Plant) nowNode.getCargo()).display();
+      plant = ((Plant) nowNode.getCargo());
+      plant.display();
+      if (plant.shoot()) {
+        _projectiles[plant.lane()].add(plant.attack()); ///add a projectile to the necessary lane
+      }
       nowNode = nowNode.getNext();
     }
   }
@@ -162,15 +184,15 @@ void displayPlants()
 void displayProjectiles()
 {
   DLLNode nowNode = null;
-
-  for (int r = 0; r < 5; r++)
+  //modularized by replacing numbers with length -R
+  for (int r = 0; r < _projectiles.length; r++)
   {
     nowNode = _projectiles[r].getNode(0);
     if (nowNode == null)
     {
       return;
     }
-    while (nowNode != null)
+    while (nowNode != null && nowNode.getCargo() != null)
     {
       ((Projectile) nowNode.getCargo()).display();
       nowNode = nowNode.getNext();
@@ -181,8 +203,8 @@ void displayProjectiles()
 void movePlants()
 {
   DLLNode nowNode = null;
-
-  for (int r = 0; r < 5; r++)
+ //modularized by replacing numbers with length -R
+  for (int r = 0; r < _visiblePlants.length; r++)
   {
     nowNode = _visiblePlants[r].getNode(0);
     if (nowNode == null)

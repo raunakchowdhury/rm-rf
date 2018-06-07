@@ -26,5 +26,6 @@ class Projectile
   public void display()
   {
     ellipse(_x, _y, _radius, _radius);
+    move();
   }
 }
