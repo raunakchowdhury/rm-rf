@@ -9,8 +9,11 @@ class Zombie extends Character {
     _HP = 20;
     _speed = 100;
     _sprites = new PImage[10]; //both walking and eating anims
-    for (int i = 0; i < _sprites.length; i++) {
+    for (int i = 0; i < _sprites.length/2; i++) {
       _sprites[i] = loadImage("../sprites/rzomb-walk/rzombie" + i + ".png");
+    }
+    for (int i = 5; i < _sprites.length; i++) {
+      _sprites[i] = loadImage("../sprites/rzomb-attack/rzombie" + (i-5) + ".png");
     }
   }
   public void attack() {
