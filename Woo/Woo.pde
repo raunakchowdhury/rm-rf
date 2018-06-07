@@ -11,6 +11,7 @@ private LList<Projectile>[] _projectiles; // projectiles in each lance
 private int _zombieSpawnRate; // controls spawn rate of zombie
 private int _cooldown;
 private final int _CDRATE = 1;
+private int _section;
 
 private Zomboss _zb;
 
@@ -23,13 +24,46 @@ void setup()
   birthPlants(); //creates the _plants queue
 }
 
-void draw() 
+void draw()
+{
+  if (_section == 0)
+  {
+    //startScreen();
+  } else if (_section == 1)
+  { 
+    play();
+  } else if (_section == 2)
+  {
+    win();
+  } else {
+    lose();
+  }
+}
+
+void play() 
 {
   PImage img = loadImage("../pvz1.jpg");
   background(img);
   displayAll(); // calls display() for all visible plants, zombies, and projectiles
   moveAll(); // calls move() for all visible plants and projectiles
+
   _cooldown++;
+  if (_zb.getHP() <= 0)
+    _section = 2;
+}
+
+void win()
+{
+  background(0, 0, 0);
+  textSize(50);
+  text("You win!!!!! :)", 300, 300);
+}
+
+void lose()
+{
+  background(0, 0, 0);
+  textSize(50);
+  text("You lose!!!!! :(", 300, 300);
 }
 
 /*---------NOTES SECTION/TODO------------
@@ -38,6 +72,7 @@ void draw()
  3. Please smooth out code, there are places where this can be improved
  4. COMMENT COMMENT COMMENT, ONLY WAY WE ARE GOING TO FINISH
  ------------------------------------*/
+
 
 
 void mouseClicked()
@@ -84,6 +119,7 @@ void constructor()
   _visiblePlants = new LList[5];
   _projectiles = new LList[5];
   _zb = new Zomboss();
+  _section = 1;
 
   //instantiates a list at each lane for zombies, plants, and projectiles
   for (int i = 0; i < 5; i++)
@@ -112,7 +148,7 @@ void birthPlots()
 
 void birthPlants()
 {
-  for (int i = 0; i < 20; i++)
+  for (int i = 0; i < 50; i++)
   {
     Plant p = new PeaShooter();
     _plants.enqueue(p);
@@ -179,7 +215,7 @@ void displayNext()
   fill(0, 0, 0);
   textSize(15);
   text("Next Plant:", 20, 50);
-  
+
   PImage p = _plants.peekFront().getSP();
   image(p, 20, 80, p.width / 2, p.height / 2);
 }
@@ -264,6 +300,10 @@ void moveZombies()
         {
           ((Character)dl.getCargo()).takeDamage(z.getDmg());
           //_visiblePlants[r].removeNode(dl);
+        }
+        if (z.getX() < 100)
+        {
+          _section = 3;
         }
         c++;
       }
