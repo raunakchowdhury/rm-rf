@@ -70,8 +70,8 @@ void mouseClicked()
 
 void keyPressed()
 {
-  int lane = (int) random(0, 6);
-  int ycor = (int) random(_patches[lane][0].ymin() + 1, _patches[lane][0].ymax());
+  int lane = (int) random(0, 5);
+  int ycor = (int) random(_patches[lane][0].ymin() + 40, _patches[lane][0].ymax() - 40);
   Zombie z = new Zombie(ycor);
   _visibleZombies[lane].add(z);
 }
@@ -175,21 +175,29 @@ void moveAll()
 {
   movePlants();
   moveProjectiles();
-  //moveZombies();
+  moveZombies();
 }
 
 void movePlants()
 {
   for (int r = 0; r < _visiblePlants.length; r++)
   {
-    for (int c = 0; c < _visiblePlants[r].size(); c++)
+    int c = 0;  
+    while (c < _visiblePlants[r].size())
     { 
       //adds a projectile to _projectiles if a plant produces one
       Plant pl = (Plant) _visiblePlants[r].get(c);
-      Projectile tmp = pl.attack();
-      if (tmp != null) //checks to make sure that a projectile is produced
+      if (pl.getHP() <= 0)
       {
-        _projectiles[r].add(tmp);
+        _visiblePlants[r].remove(c);
+      } else 
+      {
+        Projectile tmp = pl.attack();
+        if (tmp != null) //checks to make sure that a projectile is produced
+        {
+          _projectiles[r].add(tmp);
+        }
+        c++;
       }
     }
   }
@@ -204,9 +212,10 @@ void moveProjectiles()
     {
       //resets the projectiles's x coordinate
       Projectile pj = (Projectile) _projectiles[r].get(c);
-      pj.move();
-      if (pj.getX() >= width && pj.getY() >= height) //if it's supposed to be placed out of the screen
+      DLLNode dl = pj.move(_visibleZombies[r]);
+      if (dl != null)
       {
+        ((Character)dl.getCargo()).takeDamage(20);
         _projectiles[r].remove(c);
         c--;
       }
@@ -222,12 +231,12 @@ void moveZombies()
     while (c < _visibleZombies[r].size())
     {
       //resets the projectiles's x coordinate
-      Zombie z = (Zombie) _visibleZombies[r].get(c);
-      z.move(_visiblePlants[r]);
-      if (z.getX() >= width && z.getY() >= height) //if it's supposed to be placed out of the screen
+      Zombie z = (Zombie) (_visibleZombies[r].get(c));
+      DLLNode dl = z.move(_visiblePlants[r]);
+      if (dl != null) //if it's supposed to be placed out of the screen
       {
-        _visibleZombies[r].remove(c);
-        c--;
+        ((Character)dl.getCargo()).takeDamage(20);
+        //_visiblePlants[r].removeNode(dl);
       }
       c++;
     }

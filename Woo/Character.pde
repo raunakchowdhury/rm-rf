@@ -17,7 +17,10 @@ abstract class Character {
   {
     return _y;
   }
-  public abstract void takeDamage();
+  public void takeDamage(int dmg)
+  {
+    _HP -= dmg;
+  }
 
   public int lane()
   {
@@ -28,8 +31,8 @@ abstract class Character {
     _x = x;
     _y = y;
   }
-  
-    //set the lane
+
+  //set the lane
   public void setLane(int lane) {
     _lane = lane;
   }

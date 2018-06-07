@@ -33,4 +33,8 @@ abstract class Plant extends Character {
     _x = x;
     _y = y;
   }
+  public int getHP()
+  {
+    return _HP;
+  }
 }

@@ -3,24 +3,25 @@ class Zombie extends Character {
   protected int _speed;
 
   public Zombie(int ycor) {
-    _x = 925;
+    _x = 850;
     _y = ycor;
     _rad = 25;
     _HP = 20;
-    _speed = 100;
+    _speed =  2 * 5;
     _sprites = new PImage[10]; //both walking and eating anims
     for (int i = 0; i < _sprites.length/2; i++) {
       _sprites[i] = loadImage("../sprites/rzomb-walk/rzombie" + i + ".png");
     }
-    for (int i = 5; i < _sprites.length; i++) {
-      _sprites[i] = loadImage("../sprites/rzomb-attack/rzombie" + (i-5) + ".png");
-    }
+    //for (int i = 5; i < _sprites.length; i++) {
+    //  _sprites[i] = loadImage("../sprites/rzomb-attack/rzombie" + (i-5) + ".png");
+    //}
   }
   public void attack() {
   }
   public void display() {
     //if (no plants in front)
-    super.display();
+    frame = (frame+1) % 10;
+    image(_sprites[frame/2], _x, _y - 80);
     //else, go to displayattack
   }
 
@@ -29,19 +30,20 @@ class Zombie extends Character {
     image(_sprites[frame/2 + 5], _x, _y);
   }
 
-  public void takeDamage() {
-  }
-  public Plant move(LList<Plant> plants)
+  public DLLNode<Plant> move(LList<Plant> plants)
   {
     _x -= _speed;
     for (int c = plants.size() - 1; c >= 0; c--)
     {
-      Plant pl = (Plant) plants.get(c);
-      if (pl.getX() - getX() < _rad)
-    {
-      return pl;
+      DLLNode dl = plants.getNode(c);
+      Plant pl = (Plant) dl.getCargo();
+      if (pl != null && getX() - pl.getX() < _rad)
+      {
+        _speed = 0;
+        return dl;
       }
     }
+    _speed = 2 * 5;
     return null;
   }
 }

@@ -53,6 +53,14 @@ public class LList<T>
   {
     DLLNode tmp = getNode(a);
 
+    if (tmp == _head && tmp == _tail)
+    {
+      _head = null;
+      _tail = null;
+      _size--;
+      return (T) tmp.getCargo();
+    }
+
     if (tmp.getPrev() == null)
     {
       _head.getNext().setPrev(null);
@@ -74,6 +82,17 @@ public class LList<T>
   public T removeNode( DLLNode a)
   {
     DLLNode tmp = a;
+
+    if (tmp == null)
+      return null;
+
+    if (tmp == _head && tmp == _tail)
+    {
+      _head = null;
+      _tail = null;
+      _size--;
+      return (T) tmp.getCargo();
+    }
 
     if (tmp.getPrev() == null)
     {
@@ -97,6 +116,7 @@ public class LList<T>
     DLLNode<T> temp = _head;
     _head.getNext().setPrev(null);
     _head = _head.getNext();
+    _size--;
     return temp.getCargo();
   }
 

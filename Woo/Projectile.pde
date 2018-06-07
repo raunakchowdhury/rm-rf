@@ -24,10 +24,19 @@ class Projectile
   public int getY() {
     return _y;
   }
-  public void move()
+  public DLLNode<Zombie> move(LList<Zombie> zombies)
   {
     _x += _dx;
-    _y += _dy;
+    for (int c = zombies.size() - 1; c >= 0; c--)
+    {
+      DLLNode dl = zombies.getNode(c);
+      Zombie z = (Zombie) dl.getCargo();
+      if (z != null && z.getX() - getX() <= _radius)
+      {
+        return dl;
+      }
+    }
+    return null;
   }
   public void display()
   {
