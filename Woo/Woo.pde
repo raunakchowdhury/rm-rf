@@ -213,9 +213,13 @@ void moveProjectiles()
       //resets the projectiles's x coordinate
       Projectile pj = (Projectile) _projectiles[r].get(c);
       DLLNode dl = pj.move(_visibleZombies[r]);
-      if (dl != null)
+      if (pj.getX() > 850)
       {
-        ((Character)dl.getCargo()).takeDamage(20);
+        _projectiles[r].remove(c);
+        c--;
+      } else if (dl != null)
+      {
+        ((Character)dl.getCargo()).takeDamage(pj.getDmg());
         _projectiles[r].remove(c);
         c--;
       }
@@ -223,6 +227,7 @@ void moveProjectiles()
     }
   }
 }
+
 void moveZombies()
 {
   for (int r = 0; r < _visibleZombies.length; r++)
@@ -232,13 +237,18 @@ void moveZombies()
     {
       //resets the projectiles's x coordinate
       Zombie z = (Zombie) (_visibleZombies[r].get(c));
-      DLLNode dl = z.move(_visiblePlants[r]);
-      if (dl != null) //if it's supposed to be placed out of the screen
+      if (z.getHP() <= 0)
       {
-        ((Character)dl.getCargo()).takeDamage(20);
-        //_visiblePlants[r].removeNode(dl);
+        _visibleZombies[r].remove(c);
+      } else {
+        DLLNode dl = z.move(_visiblePlants[r]);
+        if (dl != null) //if it's supposed to be placed out of the screen
+        {
+          ((Character)dl.getCargo()).takeDamage(z.getDmg());
+          //_visiblePlants[r].removeNode(dl);
+        }
+        c++;
       }
-      c++;
     }
   }
 }

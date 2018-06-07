@@ -7,7 +7,7 @@ class PeaShooter extends Plant
   public PeaShooter()
   {
     super();
-    _HP = 100;
+    _HP = 20;
     _shootRate = 20;
     for (int i = 0; i < _sprites.length; i++) {
       //_sprites[i] = loadImage("peashooter0.png");

@@ -1,13 +1,14 @@
 class Zombie extends Character {
   private int _rad;
   protected int _speed;
-
+  private int _dmg;
   public Zombie(int ycor) {
     _x = 850;
     _y = ycor;
     _rad = 25;
-    _HP = 20;
+    _HP = 80;
     _speed =  2 * 5;
+    _dmg = 10;
     _sprites = new PImage[10]; //both walking and eating anims
     for (int i = 0; i < _sprites.length/2; i++) {
       _sprites[i] = loadImage("../sprites/rzomb-walk/rzombie" + i + ".png");
@@ -16,7 +17,9 @@ class Zombie extends Character {
     //  _sprites[i] = loadImage("../sprites/rzomb-attack/rzombie" + (i-5) + ".png");
     //}
   }
-  public void attack() {
+  public int getDmg()
+  {
+    return _dmg;
   }
   public void display() {
     //if (no plants in front)

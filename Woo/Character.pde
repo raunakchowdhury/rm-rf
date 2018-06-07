@@ -17,6 +17,10 @@ abstract class Character {
   {
     return _y;
   }
+  public int getHP()
+  {
+    return _HP;
+  }
   public void takeDamage(int dmg)
   {
     _HP -= dmg;

@@ -1,7 +1,7 @@
 class Projectile
 {
   /*instance vars*/
-  private int _damage;
+  private int _dmg;
   private int _dx;
   private int _dy;
   private int _x;
@@ -11,6 +11,7 @@ class Projectile
   /*constructor*/
   public Projectile(int x, int y, int dx, int dy, int rad)
   {
+    _dmg = 20;
     _x = x;
     _y = y;
     _dx = dx;
@@ -23,6 +24,10 @@ class Projectile
   }
   public int getY() {
     return _y;
+  }
+  public int getDmg()
+  {
+    return _dmg;
   }
   public DLLNode<Zombie> move(LList<Zombie> zombies)
   {
