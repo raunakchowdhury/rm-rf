@@ -1,10 +1,13 @@
 class Zombie extends Character {
+  private int _rad;
   protected int _speed;
-  private Plot _currPlot; //zombie's current plot
 
-  public Zombie() {
+  public Zombie(int ycor) {
+    _x = 925;
+    _y = ycor;
+    _rad = 25;
     _HP = 20;
-    _speed = 5;
+    _speed = 100;
     _sprites = new PImage[10]; //both walking and eating anims
     for (int i = 0; i < _sprites.length; i++) {
       _sprites[i] = loadImage("../sprites/rzomb-walk/rzombie" + i + ".png");
@@ -14,7 +17,6 @@ class Zombie extends Character {
   }
   public void display() {
     //if (no plants in front)
-    _x -=5;
     super.display();
     //else, go to displayattack
   }
@@ -26,6 +28,17 @@ class Zombie extends Character {
 
   public void takeDamage() {
   }
-  
-  
+  public Plant move(LList<Plant> plants)
+  {
+    _x -= _speed;
+    for (int c = plants.size() - 1; c >= 0; c--)
+    {
+      Plant pl = (Plant) plants.get(c);
+      if (pl.getX() - getX() < _rad)
+    {
+      return pl;
+      }
+    }
+    return null;
+  }
 }

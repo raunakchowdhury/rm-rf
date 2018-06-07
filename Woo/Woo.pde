@@ -66,13 +66,14 @@ void mouseClicked()
       }
     }
   }
-  
-  //@@@@@@@@@@@@@@tester@@@@@@@@@@@@@@
-  for (int i = 0; i < _visiblePlants.length; i++)
-  {
-    println(_visiblePlants[i].size());
-  }
-  println();
+}
+
+void keyPressed()
+{
+  int lane = (int) random(0, 6);
+  int ycor = (int) random(_patches[lane][0].ymin() + 1, _patches[lane][0].ymax());
+  Zombie z = new Zombie(ycor);
+  _visibleZombies[lane].add(z);
 }
 
 void constructor()
@@ -207,6 +208,25 @@ void moveProjectiles()
       if (pj.getX() >= width && pj.getY() >= height) //if it's supposed to be placed out of the screen
       {
         _projectiles[r].remove(c);
+        c--;
+      }
+      c++;
+    }
+  }
+}
+void moveZombies()
+{
+  for (int r = 0; r < _visibleZombies.length; r++)
+  {
+    int c = 0;
+    while (c < _visibleZombies[r].size())
+    {
+      //resets the projectiles's x coordinate
+      Zombie z = (Zombie) _visibleZombies[r].get(c);
+      z.move(_visiblePlants[r]);
+      if (z.getX() >= width && z.getY() >= height) //if it's supposed to be placed out of the screen
+      {
+        _visibleZombies[r].remove(c);
         c--;
       }
       c++;
