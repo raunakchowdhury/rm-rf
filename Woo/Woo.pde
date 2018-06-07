@@ -148,7 +148,7 @@ void constructor()
   _zb = new Zomboss();
   _section = 0;
   _ctr = -50;
-  _zombieSpawnRate = 15;
+  _zombieSpawnRate = 25;
 
   //instantiates a list at each lane for zombies, plants, and projectiles
   for (int i = 0; i < 5; i++)

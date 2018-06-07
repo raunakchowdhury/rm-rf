@@ -15,7 +15,7 @@ class Zombie extends Character {
     {
       _HP += 80;
     }
-    _speed =  5;
+    _speed =  3;
     _dmg = 5;
     _sprites = new PImage[10]; //both walking and eating anims
     for (int i = 0; i < _sprites.length/2; i++) {
@@ -59,7 +59,7 @@ class Zombie extends Character {
         return dl;
       }
     }
-    _speed = 5;
+    _speed = 3;
     return null;
   }
 }

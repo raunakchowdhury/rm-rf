@@ -4,7 +4,7 @@ class Zomboss
   private PImage _sprite;
   public Zomboss()
   {
-    _HP = 1200;
+    _HP = 2400;
     _sprite = loadImage("../sprites/zomboss/zomboss.png");
   }
 
@@ -24,7 +24,7 @@ class Zomboss
     rect(400, 10, 420, 30);
     if (_HP > 0) {
       fill(255, 0, 0);
-      rect(410, 20, _HP / 3, 10);
+      rect(410, 20, _HP / 6, 10);
       image(_sprite, 800, 5);
     }
   }
