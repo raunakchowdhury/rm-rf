@@ -7,7 +7,7 @@ class Projectile
   private int _x;
   private int _y;
   private int _radius;
-  
+
   /*constructor*/
   public Projectile(int x, int y, int dx, int dy, int rad)
   {
@@ -17,7 +17,13 @@ class Projectile
     _dy = dy;
     _radius = rad;
   }
-  
+
+  public int getx() {
+    return _x;
+  }
+  public int gety() {
+    return _y;
+  }
   public void move()
   {
     _x += _dx;
@@ -26,6 +32,5 @@ class Projectile
   public void display()
   {
     ellipse(_x, _y, _radius, _radius);
-    move();
   }
 }

@@ -49,6 +49,27 @@ public class LList<T>
     return retVal;
   }
 
+  public T remove(int a)
+  {
+    DLLNode tmp = getNode(a);
+
+    if (tmp.getPrev() == null)
+    {
+      _head.getNext().setPrev(null);
+      _head = tmp.getNext();
+    } else if (tmp.getNext() == null)
+    {
+      tmp.getPrev().setNext(null);
+      _tail = tmp.getPrev();
+    } else
+    {
+      tmp.getPrev().setNext(tmp.getNext());
+      tmp.getNext().setPrev(tmp.getPrev());
+    }
+    _size--;
+    return (T) tmp.getCargo();
+  }
+
   //removes the node a and returns its cargo
   public T removeNode( DLLNode a)
   {
@@ -70,7 +91,7 @@ public class LList<T>
     _size--;
     return (T) tmp.getCargo();
   }
-  
+
   public T remove()
   {
     DLLNode<T> temp = _head;
