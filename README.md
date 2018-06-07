@@ -11,6 +11,10 @@
 
   All other classes supplement Woo with accessor methods and store essential values like coordinates and how exactly to move and display themselves (Woo calls these other functions.)
 
+  During gameplay, zombies will be spawned by the Zomboss in random lanes. There will be a queue of Plants available to place down on each plot on the garden. After you place down one Plant from the queue, there will be a short cooldown before you can place the next plant.
+
+  Plants, if they can shoot, will automatically shoot at either the Zomboss and incoming zombies. They cannot shoot at zombies outside of the lane that they are on. Obviously, barrier plants like the Wall-Nut cannot shoot at zombies.
+
   You can consult the "Scores" tab to see your highest score (as you play the game multiple times, the leaderboard will sort itself automatically. See "Quicksort.")
 
   See the diagram below for further reference.
@@ -27,9 +31,11 @@ minHeap and maxHeap
 Running time median to record average time taken to beat the game
 ## DoublyLinkedLists
 Will store the projectiles, plants and zombies currently on the screen. Will allow for O(1) removal runtime, which increases efficiency.
-Each ADT will be taken by one developer.
+
 The placement of the plants will be determined via a matrix.
+
 Zombies will move in fixed lanes.
+
 There will be two inheritance trees: Plants and Zombies.
 	- Plants
     - Peashooter
@@ -45,6 +51,7 @@ Shovels will be used to remove plants.
   cd Woo
   processing Woo.pde
   ```
-
 1. Click on plants in the Queue (see the section in the UI) to place them on the plots, by clicking again
-2. Place the plants strategically so no zombies can get past the plants to the house
+2. Place the plants strategically so no zombies can get past the plants to the house.
+  - Wincon: Zomboss health is depleted
+  - Losecon: Zombies reach the other side (you're a skrub if you lose)
