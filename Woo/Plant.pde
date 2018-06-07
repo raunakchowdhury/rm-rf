@@ -3,6 +3,8 @@ abstract class Plant extends Character {
   protected boolean _shoot;
   protected int _shootRate;
   protected int _ctr;
+  protected PImage _seedPacket;
+  
   public Plant() {
     super();
   }
@@ -27,11 +29,19 @@ abstract class Plant extends Character {
     super._y = plot.ymin();
     plot.implant(this);
   }
+  
+  public Plot getPlot()
+  {
+    return _location;
+  }
   public abstract Projectile attack();
   public void setXY(int x, int y)
   {
     _x = x;
     _y = y;
   }
- 
+ public PImage getSP()
+ {
+   return _seedPacket;
+ } 
 }

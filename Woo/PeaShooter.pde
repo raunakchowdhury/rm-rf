@@ -13,9 +13,7 @@ class PeaShooter extends Plant
       //_sprites[i] = loadImage("peashooter0.png");
       _sprites[i] = loadImage("../sprites/peashooter/peashooter" + i + ".png");
     }
-  }
-  public void takeDamage()
-  {
+    _seedPacket = loadImage("../sprites/seed-packs/peashooter-packet.png");
   }
 
   public void display() {

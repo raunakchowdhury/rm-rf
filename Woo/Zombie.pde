@@ -35,7 +35,7 @@ class Zombie extends Character {
 
   public void displayAttack() {
     frame = (frame+1) % 10;
-    image(_sprites[frame/2 + 5], _x, _y);
+    image(_sprites[frame/2 + 5], _x, _y - 80);
   }
 
   public DLLNode<Plant> move(LList<Plant> plants)
@@ -45,7 +45,7 @@ class Zombie extends Character {
     {
       DLLNode dl = plants.getNode(c);
       Plant pl = (Plant) dl.getCargo();
-      if (pl != null && getX() - pl.getX() < _rad)
+      if (pl != null && getX() - pl.getX() < _rad && getX() - pl.getX() > 0)
       {
         _speed = 0;
         return dl;

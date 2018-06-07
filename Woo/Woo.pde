@@ -8,10 +8,12 @@ private LList<Zombie>[] _visibleZombies; // zombies in each lane
 private LList<Plant>[] _visiblePlants; // plants in each lane
 private LList<Projectile>[] _projectiles; // projectiles in each lance
 
-private boolean _clicked; // can the player place down a plant or not
 private int _zombieSpawnRate; // controls spawn rate of zombie
+private int _cooldown;
+private final int _CDRATE = 1;
 
-private Plant p;
+private Zomboss _zb;
+
 void setup() 
 { 
   size(950, 600);
@@ -27,6 +29,7 @@ void draw()
   background(img);
   displayAll(); // calls display() for all visible plants, zombies, and projectiles
   moveAll(); // calls move() for all visible plants and projectiles
+  _cooldown++;
 }
 
 /*---------NOTES SECTION/TODO------------
@@ -39,14 +42,9 @@ void draw()
 
 void mouseClicked()
 {
-  /*
-  if (_clicked == false && mouseX - p.getX() < 100 &&
-   mouseX - p.getX() > -100 && mouseY - p.getY() < 100 && mouseY - p.getY() > -100)
-   _clicked = true;
-   */
-  if (_clicked == true) {
+  if ( _cooldown > _CDRATE) {
 
-    p = _plants.dequeue(); //takes one out of the _plants queue to add to _visiblePlants
+    Plant p = _plants.dequeue(); //takes one out of the _plants queue to add to _visiblePlants
 
     for (int r = 0; r < 5; r++) // r is the row, otherwise known as lance
     {
@@ -60,11 +58,11 @@ void mouseClicked()
             p.setPlot(_patches[r][c]);
             p.setLane(r);
             _visiblePlants[r].add(p);
-            //_clicked = false;
           }
         }
       }
     }
+    _cooldown = 0;
   }
 }
 
@@ -78,12 +76,14 @@ void keyPressed()
 
 void constructor()
 {
+  _cooldown = _CDRATE + 1;
   _patches = new Plot[5][9];
   _plants = new Queue<Plant>();
   _zombies = new Queue<Zombie>();
   _visibleZombies = new LList[5];
   _visiblePlants = new LList[5];
   _projectiles = new LList[5];
+  _zb = new Zomboss();
 
   //instantiates a list at each lane for zombies, plants, and projectiles
   for (int i = 0; i < 5; i++)
@@ -94,7 +94,6 @@ void constructor()
   }
 
   /////////////////////
-  _clicked = true;
   _zombieSpawnRate = 0;
 }
 
@@ -115,7 +114,7 @@ void birthPlants()
 {
   for (int i = 0; i < 20; i++)
   {
-    p = new PeaShooter();
+    Plant p = new PeaShooter();
     _plants.enqueue(p);
   }
 }
@@ -127,6 +126,8 @@ void displayAll()
   displayPlants();
   displayZombies();
   displayProjectiles();
+  displayNext(); //next plant
+  _zb.display();
 }
 
 void displayZombies()
@@ -167,6 +168,21 @@ void displayProjectiles()
     }
   }
 }
+void displayNext()
+{
+  if (_cooldown > _CDRATE)
+    fill(0, 255, 0);
+  else {
+    fill(255, 0, 0);
+  }
+  rect(10, 10, 145, 150, 10);
+  fill(0, 0, 0);
+  textSize(15);
+  text("Next Plant:", 20, 50);
+  
+  PImage p = _plants.peekFront().getSP();
+  image(p, 20, 80, p.width / 2, p.height / 2);
+}
 //==============================================
 
 
@@ -189,6 +205,7 @@ void movePlants()
       Plant pl = (Plant) _visiblePlants[r].get(c);
       if (pl.getHP() <= 0)
       {
+        pl.getPlot().uproot();
         _visiblePlants[r].remove(c);
       } else 
       {
@@ -215,6 +232,7 @@ void moveProjectiles()
       DLLNode dl = pj.move(_visibleZombies[r]);
       if (pj.getX() > 850)
       {
+        _zb.takeDamage(pj.getDmg());
         _projectiles[r].remove(c);
         c--;
       } else if (dl != null)
