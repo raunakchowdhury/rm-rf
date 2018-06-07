@@ -37,9 +37,11 @@ Changes to Codebase:
 - Fixed Projectiles and added colour (6/07/18) -F,N,R
 - Added comments and QoL Changes (6/07/18) -F,N,R
 - Added backend for Zombies (6/07/18) -F,N,R
+- Added all game features for MVP (Plants, Zomboss, relevant pics, etc.) (6/07/18) -R
+
 ------------------------------------
 Tasks to Complete/Features to Implement:
-0. fill Character file completely, but comment out sprites (N)
+0. fill Character file completely, but comment out sprites (N) [X]
 		- protected PShape[] _sprites
 		- protected int _HP
 		- protected int _lane
@@ -48,10 +50,10 @@ Tasks to Complete/Features to Implement:
 		+ abstract void takeDamage()
 		+ int lane()
 		+ abstract int value()
-1. start Plant file (R)
+1. start Plant file (R) [X]
 		- protected Plot location
 		+ abstract void attack()
-2. Complete Projectile file (similar to Ball) (F)
+2. Complete Projectile file (similar to Ball) (F) [X]
 		- int _damage
 		- int _dx
 		- int _dy
@@ -63,9 +65,9 @@ Issues to deal with:
 	(- for currently not dealt with)
 	(+ for dealt with)
 
-- LLNode, DLLNode, Queue, and LList have been added but haven't been tested
-- Woo.pde -> constructor(): zombieSpawnRate has been set to 0
-- Woo.pde -> mouseClicked(): condition for placing a plant is true instead of
+- LLNode, DLLNode, Queue, and LList have been added but haven't been tested [X]
+- Woo.pde -> constructor(): zombieSpawnRate has been set to 0 [X]
+- Woo.pde -> mouseClicked(): condition for placing a plant is true instead of [X]
                              clicked == true
 ------------------------------------
 Cool Stuff that could be Added Later:

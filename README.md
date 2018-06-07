@@ -55,7 +55,9 @@ Shovels will be used to remove plants.
   cd Woo
   processing Woo.pde
   ```
-1. Click on plants in the Queue (see the section in the UI) to place them on the plots, by clicking again
-2. Place the plants strategically so no zombies can get past the plants to the house.
+1. You will be introduced to the game via the start screen. Click anywhere to start.
+2. Click on plants in the Queue (see the section in the UI) to place them on the plots, by clicking again
+3. Place the plants strategically so no zombies can get past the plants to the house.
   - Wincon: Zomboss health is depleted
   - Losecon: Zombies reach the other side (you're a skrub if you lose)
+4. If you win/lose, you will be led to the respective screen. Click anywhere to continue.
