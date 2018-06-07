@@ -17,7 +17,7 @@ private PShape testShape;
 private Plant p;
 void setup() 
 { 
-  size(1400, 600);
+  size(960, 600);
   constructor();
 
   birthPlots();
@@ -74,7 +74,7 @@ void constructor()
   }
 
   /////////////////////
-  _clicked = false;
+  _clicked = true;
   _zombieSpawnRate = 0;
   //p = new PeaShooter();
 }
