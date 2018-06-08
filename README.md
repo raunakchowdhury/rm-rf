@@ -1,4 +1,4 @@
-# Team rm-rf -- T. Fabiha, Nadie Jackson
+# Team rm-rf -- T. Fabiha, Nadie Jackson, Raunak Chowdhury
 ### APCS2 pd2
 ### HW61 -- On Target
 ### 2018-06-07
@@ -47,9 +47,9 @@ There will be two inheritance trees: Plants and Zombies.
   ```
   cd Woo
   processing Woo.pde
-  - Type the following command on the keyboard
-  C-r
   ```
+  - Type the following command on the keyboard:
+  `C-r`
 1. You will be introduced to the game via the start screen. Click anywhere to start.
 2. Click on a plot of grass to place the next plant (displayed in top left corner).
 3. Place the plants strategically so no zombies can get past the plants to the house.
