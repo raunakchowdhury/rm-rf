@@ -23,6 +23,8 @@
    The picture below displays the UI during the game:
    
 ![GitHub Logo](/sprites/ui.png)
+
+The green rectangle with "next plant" displays the next plant that you can place down. If you click on it, it will discard the plant and present the next plant. There is a cooldown; the rectangle glows red when it is in cooldown. Otherwise, the game follows normal PvZ rules, with the only exception being that Dr. Zomboss takes up all 5 lanes.
 ## Queues
 We will simulate a feeder belt with plants with a Queue. We are still unsure of how to do the animation; however, the MVP will be that the card simply appears in the Queue (ie. no sliding along; it’ll just pop into existence)
 
