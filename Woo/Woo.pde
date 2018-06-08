@@ -17,6 +17,14 @@ private int _ctr;
 
 private Zomboss _zb;
 
+
+/*---------NOTES SECTION/TODO------------
+ 1. When are plants transferred from the plants queue into the visiblePlants array?
+ 2. Zombie generation?
+ 3. Please smooth out code, there are places where this can be improved
+ 4. COMMENT COMMENT COMMENT, ONLY WAY WE ARE GOING TO FINISH
+ ------------------------------------*/
+
 void setup() 
 { 
   size(950, 600);
@@ -40,6 +48,13 @@ void draw()
   } else {
     lose();
   }
+}
+
+//=============SCREEN METHODS====================
+void startScreen()
+{
+  _screen = loadImage("../sprites/screen/start-screen.jpg");
+  background(_screen);
 }
 
 void play() 
@@ -77,14 +92,7 @@ void lose()
   _screen = loadImage("../sprites/screen/lose-screen.jpg");
   background(_screen);
 }
-
-/*---------NOTES SECTION/TODO------------
- 1. When are plants transferred from the plants queue into the visiblePlants array?
- 2. Zombie generation?
- 3. Please smooth out code, there are places where this can be improved
- 4. COMMENT COMMENT COMMENT, ONLY WAY WE ARE GOING TO FINISH
- ------------------------------------*/
-
+//==============================================
 
 
 void mouseClicked()
@@ -122,13 +130,6 @@ void mouseClicked()
   }
 }
 
-//void keyPressed()
-//{
-//  int lane = (int) random(0, 5);
-//  int ycor = (int) random(_patches[lane][0].ymin() + 40, _patches[lane][0].ymax() - 40);
-//  Zombie z = new Zombie(ycor);
-//  _visibleZombies[lane].add(z);
-//}
 void spawnZombie() {
   int lane = (int) random(0, 5);
   int ycor = (int) random(_patches[lane][0].ymin() + 40, _patches[lane][0].ymax() - 40);
@@ -342,10 +343,5 @@ void moveZombies()
       }
     }
   }
-}
-void startScreen()
-{
-  _screen = loadImage("../sprites/screen/start-screen.jpg");
-  background(_screen);
 }
 //==============================================
