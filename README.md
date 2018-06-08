@@ -22,7 +22,7 @@
 
    The picture below displays the UI during the game:
    
-[!Image of UI] [/sprites/ui.png]
+![GitHub Logo](/sprites/ui.png)
 ## Queues
 We will simulate a feeder belt with plants with a Queue. We are still unsure of how to do the animation; however, the MVP will be that the card simply appears in the Queue (ie. no sliding along; it’ll just pop into existence)
 
