@@ -2,6 +2,7 @@ class Zomboss
 {
   private int _HP;
   private PImage _sprite;
+  private int frame;
   public Zomboss()
   {
     _HP = 2400;
@@ -11,6 +12,17 @@ class Zomboss
   public int getHP()
   {
     return _HP;
+  }
+  
+  public void regen(){
+    _HP += (int) (.25 * _HP);
+  }
+  
+  public void passiveRegen(){
+    if (frame == 50){
+    _HP += (int) (.005 * _HP);
+    }
+    frame = (frame + 1) % 10;
   }
 
   public void takeDamage(int dmg)

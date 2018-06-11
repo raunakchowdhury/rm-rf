@@ -14,8 +14,10 @@ private int _cooldown;
 private final int _CDRATE = 10;
 private int _section;
 private int _ctr;
+private boolean _rage;
 
 private Zomboss _zb;
+private int _hp;
 
 
 /*---------NOTES SECTION/TODO------------
@@ -67,6 +69,7 @@ void play()
   _cooldown++;
   if (_zb.getHP() <= 0)
     _section = 2;
+  rageMode();
   if (_ctr % _zombieSpawnRate == 0 && _ctr >= 0)
   {
     spawnZombie();
@@ -150,7 +153,7 @@ void constructor()
   _section = 0;
   _ctr = -50;
   _zombieSpawnRate = 25;
-
+  _hp = _zb.getHP();
   //instantiates a list at each lane for zombies, plants, and projectiles
   for (int i = 0; i < 5; i++)
   {
@@ -343,5 +346,21 @@ void moveZombies()
       }
     }
   }
+}
+
+void rageMode(){
+  if ( _zb.getHP() <= (int) (_hp * .75) && _zombieSpawnRate == 25){
+    _zombieSpawnRate -= 5;
+    _zb.regen();
+  }
+  else if ( _zb.getHP() <= (int) (_hp * .50) && _zombieSpawnRate == 20){
+    _zombieSpawnRate -= 5;
+    _zb.regen();
+  }
+  else if ( _zb.getHP() <= (int) (_hp * .25) && _zombieSpawnRate == 15){
+    _zombieSpawnRate -= 10;
+    _zb.regen();
+  }
+  //_zb.passiveRegen();
 }
 //==============================================
