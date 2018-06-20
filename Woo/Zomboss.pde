@@ -1,11 +1,13 @@
 class Zomboss
 {
   private int _HP;
+  private int _baseHP;
   private PImage _sprite;
   private int frame;
   public Zomboss()
   {
-    _HP = 2400;
+    _baseHP = 2400;
+    _HP = _baseHP;
     _sprite = loadImage("../sprites/zomboss/zomboss.png");
   }
 
@@ -15,7 +17,7 @@ class Zomboss
   }
   
   public void regen(){
-    _HP += (int) (.25 * _HP);
+    _HP += (int) (.25 * _baseHP);
   }
   
   public void passiveRegen(){
