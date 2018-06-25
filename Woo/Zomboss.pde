@@ -22,7 +22,7 @@ class Zomboss
   
   public void passiveRegen(){
     if (frame == 50){
-    _HP += (int) (.005 * _HP);
+    _HP += (int) (20);
     }
     frame = (frame + 1) % 10;
   }
@@ -38,7 +38,7 @@ class Zomboss
     rect(400, 10, 420, 30);
     if (_HP > 0) {
       fill(255, 0, 0);
-      rect(410, 20, _HP / 6, 10);
+      rect(410, 20, _HP/6, 10);
       image(_sprite, 800, 5);
     }
   }

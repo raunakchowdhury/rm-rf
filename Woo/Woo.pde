@@ -1,3 +1,5 @@
+import ddf.minim.*;
+
 // instance variables
 private Plot[][] _patches; // each main square in the visual is a plot
 
@@ -19,6 +21,8 @@ private boolean _rage;
 private Zomboss _zb;
 private int _hp;
 
+AudioPlayer bosstheme;
+Minim minim; //set up the minim object for playback
 
 /*---------NOTES SECTION/TODO------------
  1. When are plants transferred from the plants queue into the visiblePlants array?
@@ -34,6 +38,10 @@ void setup()
 
   birthPlots(); //creates Plot elements for every place in _patches
   birthPlants(); //creates the _plants queue
+  
+  minim = new Minim(this); 
+  bosstheme = minim.loadFile("../zombossMusic.mp3");
+  bosstheme.loop(); //loop indefinitely
 }
 
 void draw()
